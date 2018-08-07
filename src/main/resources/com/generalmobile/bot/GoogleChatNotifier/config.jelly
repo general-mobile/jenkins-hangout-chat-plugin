@@ -1,0 +1,54 @@
+<j:jelly xmlns:j="jelly:core" xmlns:auth="/lib/auth" xmlns:f="/lib/form">
+
+    <auth:credentials title="${%Google Credentials}" field="credentialsId"/>
+
+    <f:entry title="Notify Build Start">
+        <f:checkbox name="googleChatStartNotification" value="true" checked="${instance.getStartNotification()}"/>
+    </f:entry>
+
+    <f:entry title="Notify Aborted">
+        <f:checkbox name="googleChatNotifyAborted" value="true" checked="${instance.getNotifyAborted()}"/>
+    </f:entry>
+
+    <f:entry title="Notify Failure">
+        <f:checkbox name="googleChatNotifyFailure" value="true" checked="${instance.getNotifyFailure()}"/>
+    </f:entry>
+
+    <f:entry title="Notify Not Built">
+        <f:checkbox name="googleChatNotifyNotBuilt" value="true" checked="${instance.getNotifyNotBuilt()}"/>
+    </f:entry>
+
+    <f:entry title="Notify Success">
+        <f:checkbox name="googleChatNotifySuccess" value="true" checked="${instance.getNotifySuccess()}"/>
+    </f:entry>
+
+    <f:entry title="Notify Unstable">
+        <f:checkbox name="googleChatNotifyUnstable" value="true" checked="${instance.getNotifyUnstable()}"/>
+    </f:entry>
+
+    <f:entry title="Notify Regression">
+        <f:checkbox name="googleChatNotifyRegression" value="true" checked="${instance.getNotifyRegression()}"/>
+    </f:entry>
+
+
+    <f:entry title="Notify Back To Normal">
+        <f:checkbox name="googleChatNotifyBackToNormal" value="true" checked="${instance.getNotifyBackToNormal()}"/>
+    </f:entry>
+
+    <f:advanced>
+        <f:entry title="Notify Repeated Failure">
+            <f:checkbox name="googleChatNotifyRepeatedFailure" value="true"
+                        checked="${instance.getNotifyRepeatedFailure()}"/>
+        </f:entry>
+        <f:entry title="Include Test Summary">
+            <f:checkbox name="includeTestSummary" value="true" checked="${instance.includeTestSummary()}"/>
+        </f:entry>
+        <f:entry title="Include Failed Tests">
+            <f:checkbox name="includeFailedTests" value="true" checked="${instance.includeFailedTests()}"/>
+        </f:entry>
+
+        <f:entry title="Project Channel" >
+            <f:textbox name="room" value="${instance.getRoom()}"/>
+        </f:entry>
+    </f:advanced>
+</j:jelly>
